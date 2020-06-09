@@ -16,6 +16,8 @@
 ## Technologies
 - Main technology
   - [Ruby](https://www.ruby-lang.org/en/) - High-level, general-purpose language utilized as main technology.
+- Web Framework
+  - [Sinatra](http://sinatrarb.com/) - Domain specific language utilized as web framework.
 - Unit Test
   - [RSpec](https://rspec.info/) - Domain specific language utilized as testing tool.
 - Feature Test
