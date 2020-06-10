@@ -1,5 +1,5 @@
 # Battle
-
+Web app for an online battle game following the Model View Controller architecture. 
 
 ## Table of Contents
 * [Code Quality](#code-quality)
