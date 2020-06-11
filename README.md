@@ -1,5 +1,5 @@
 # Battle
-Web app for an online battle game following the Model View Controller architecture. 
+Web app for an online battle game following the Model View Controller architecture.
 
 ## Table of Contents
 * [Code Quality](#code-quality)
@@ -21,7 +21,7 @@ Web app for an online battle game following the Model View Controller architectu
 - Unit Test
   - [RSpec](https://rspec.info/) - Domain specific language utilized as testing tool.
 - Feature Test
-  - [IRB](https://en.wikipedia.org/wiki/Interactive_Ruby_Shell) - Interactive ruby shell utilized as a REPL.
+  - [Capybara](https://teamcapybara.github.io/capybara/) - Web-based test automation software utilized to simulate scenarios for user stories and automate web application testing.
 - Documentation
   - [MD](https://www.markdownguide.org/) - Lightweight markup language utilized for documentation.
 

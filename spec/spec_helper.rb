@@ -97,4 +97,15 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+  ENV['RACK_ENV'] = 'test'
+
+  # require Sinatra app file
+  require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+  require 'capybara'
+  require 'capybara/rspec'
+  require 'rspec'
+
+  # tell Capybara about our app class
+  Capybara.app = Battle
 end
