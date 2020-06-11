@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 feature 'Enter names' do
   scenario 'submitting names' do
