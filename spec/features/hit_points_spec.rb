@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-feature 'Enter names' do
-  scenario 'submitting names' do
-    visit '/'
-    fill_in 'player_1_name', with: 'Alex'
-    fill_in 'player_2_name', with: 'Player2'
-    click_button 'Submit'
-    expect(page).to have_content 'Alex vs Player2'
+feature 'Hit points' do
+  scenario 'see Player 2 hit points' do
+    sign_in_and_play
+    expect(page).to have_content 'Player2: 100HP'
+  end
+  scenario 'see Player 1 hit points' do
+    sign_in_and_play
+    expect(page).to have_content 'Alex: 100HP'
   end
 end
