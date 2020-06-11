@@ -46,9 +46,28 @@ bundle install
 ```
 
 ### Running
-
+- Install shotgun:
+```bash
+gem install shotgun
+```
+- Target the configuration file:
+```bash
+shotgun config.ru
+```
+- Open the browser on the port 9393:
+localhost:9393
 
 ### Testing
+- Launch RSpec to verify that all tests are passing:
+```bash
+rspec
+```
+- Expected output:
+```bash
+....
+Finished in 0.15011 seconds (files took 3.33 seconds to load)
+1 example, 0 failures
+```
 
 
 ## Domain Model
