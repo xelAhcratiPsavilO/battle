@@ -52,7 +52,7 @@ gem install shotgun
 ```
 - Target the configuration file:
 ```bash
-shotgun config.ru
+rackup
 ```
 - Open the browser on the port 9393:
 localhost:9393
