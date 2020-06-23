@@ -3,6 +3,6 @@
 feature 'Enter names' do
   scenario 'submit names' do
     sign_in_and_play
-    expect(page).to have_content 'Alex vs Player2'
+    expect(page).to have_content 'Christina vs Alex'
   end
 end

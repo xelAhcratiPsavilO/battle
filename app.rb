@@ -5,7 +5,6 @@ require './lib/game'
 require './lib/player'
 
 class Battle < Sinatra::Base
-
   before do
     @game = Game.instance
   end
@@ -15,8 +14,8 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    player1 = Player.new(params[:player_1_name])
-    player2 = Player.new(params[:player_2_name])
+    player1 = Player.new(params[:player1_name])
+    player2 = Player.new(params[:player2_name])
     Game.create(player1, player2)
     redirect '/play'
   end
@@ -27,6 +26,7 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game.attack(@game.player2)
+    @game.switch_turns
     erb :attack
   end
 
