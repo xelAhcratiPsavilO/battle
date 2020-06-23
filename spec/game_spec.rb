@@ -20,22 +20,27 @@ describe Game do
   end
 
   describe '#attack' do
-    it 'damages the player' do
+    it 'damages the player2 during player1 turn' do
       expect(player2).to receive(:receive_damage)
-      game.attack(player2)
+      game.attack
+    end
+    it 'damages the player1 during player2 turn' do
+      game.switch_turns
+      expect(player1).to receive(:receive_damage)
+      game.attack
     end
   end
 
-  describe '#current_turn' do
+  describe '#current_player' do
     it 'starts as player1' do
-      expect(game.current_turn).to eq player1
+      expect(game.current_player).to eq player1
     end
   end
 
   describe '#switch_turns' do
     it 'switches the turn' do
       game.switch_turns
-      expect(game.current_turn).to eq player2
+      expect(game.current_player).to eq player2
     end
   end
 end

@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class Game
-  attr_reader :player1, :player2, :current_turn
+  attr_reader :player1, :player2, :current_player
 
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
     @players = [player1, player2]
-    @current_turn = player1
+    @current_player = player1
   end
 
-  def attack(player)
-    player.receive_damage
+  def attack
+    opponent_of(current_player).receive_damage
   end
 
   def self.create(player1, player2)
@@ -23,12 +23,14 @@ class Game
   end
 
   def switch_turns
-    @current_turn = opponent_of(current_turn)
+    @current_player = opponent_of(current_player)
   end
 
   private
 
+  attr_reader :players
+
   def opponent_of(the_player)
-    @players.reject { |player| player == the_player }.first
+    players.reject { |player| player == the_player }.first
   end
 end

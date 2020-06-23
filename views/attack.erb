@@ -5,7 +5,13 @@
     <title></title>
   </head>
   <body>
+    <% if @game.current_player == @game.player1 %>
     <%= @game.player1.name %> attacked <%= @game.player2.name %>
-    <a href="/play">OK</a>
+    <% else %>
+    <%= @game.player2.name %> attacked <%= @game.player1.name %>
+    <% end %>
+    <form action="/switch-turns" method="post">
+      <input type="submit" value="OK">
+    </form>
   </body>
 </html>
