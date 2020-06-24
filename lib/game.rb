@@ -10,10 +10,6 @@ class Game
     @current_player = player1
   end
 
-  def attack
-    opponent_of(current_player).receive_damage
-  end
-
   def self.create(player1, player2)
     @game = Game.new(player1, player2)
   end
@@ -34,13 +30,13 @@ class Game
     losing_players.first
   end
 
-  private
-
-  attr_reader :players
-
   def opponent_of(the_player)
     players.reject { |player| player == the_player }.first
   end
+
+  private
+
+  attr_reader :players
 
   def losing_players
     players.select { |player| player.hit_points <= 0 }

@@ -65,8 +65,8 @@ rspec
 - Expected output:
 ```bash
 ....
-Finished in 0.32654 seconds (files took 3.32 seconds to load)
-18 examples, 0 failures
+Finished in 0.25746 seconds (files took 0.75822 seconds to load)
+21 examples, 0 failures
 ```
 
 

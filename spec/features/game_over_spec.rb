@@ -4,7 +4,7 @@ feature 'Game over' do
   context 'when Player1 reaches 0 HP first' do
     before do
       sign_in_and_play
-      18.times do attack_and_confirm end
+      18.times { attack_and_confirm }
     end
 
     scenario 'Player2 loses' do

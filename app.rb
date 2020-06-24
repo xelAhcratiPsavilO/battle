@@ -3,6 +3,7 @@
 require 'sinatra'
 require './lib/game'
 require './lib/player'
+require './lib/attack'
 
 class Battle < Sinatra::Base
   before do
@@ -25,7 +26,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    @game.attack
+    Attack.to(@game.opponent_of(@game.current_player))
     if @game.game_over?
       redirect '/game-over'
     else
