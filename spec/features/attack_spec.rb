@@ -7,13 +7,6 @@ feature 'Attack' do
     expect(page).to have_content 'Christina attacked Alex'
   end
 
-  scenario 'reduce Player2 HP by 10' do
-    sign_in_and_play
-    attack_and_confirm
-    expect(page).not_to have_content 'Alex: 100HP'
-    expect(page).to have_content 'Alex: 90HP'
-  end
-
   scenario 'attack Player1' do
     sign_in_and_play
     attack_and_confirm
@@ -21,11 +14,17 @@ feature 'Attack' do
     expect(page).to have_content 'Alex attacked Christina'
   end
 
-  scenario 'reduce Player1 HP by 10' do
+  scenario 'reduce Player 2 HP by 10' do
+    allow(Kernel).to receive(:rand).and_return(10)
     sign_in_and_play
     attack_and_confirm
+    expect(page).not_to have_content 'Alex: 100HP'
+    expect(page).to have_content 'Alex: 90HP'
+    end
+
+  scenario 'reduce Player2 HP by a random amount' do
+    sign_in_and_play
     attack_and_confirm
-    expect(page).not_to have_content 'Christina: 100HP'
-    expect(page).to have_content 'Christina: 90HP'
+    expect(page).not_to have_content 'Alex: 90HP'
   end
 end
