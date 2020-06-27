@@ -12,4 +12,8 @@ class Player
   def receive_damage(damage)
     @hit_points -= damage
   end
+
+  def computer?
+    false
+  end
 end

@@ -23,4 +23,10 @@ describe Player do
       expect { player.receive_damage(10) }.to change { player.hit_points }.by(-10)
     end
   end
+
+  describe '#computer?' do
+    it 'returns false' do
+      expect(player.computer?).to be false
+    end
+  end
 end

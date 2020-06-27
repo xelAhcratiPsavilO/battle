@@ -20,7 +20,7 @@ feature 'Attack' do
     attack_and_confirm
     expect(page).not_to have_content 'Alex: 100HP'
     expect(page).to have_content 'Alex: 90HP'
-    end
+  end
 
   scenario 'reduce Player2 HP by a random amount' do
     sign_in_and_play

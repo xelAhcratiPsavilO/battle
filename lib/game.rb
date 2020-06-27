@@ -30,13 +30,17 @@ class Game
     losing_players.first
   end
 
-  def opponent_of(the_player)
-    players.reject { |player| player == the_player }.first
+  def opponent
+    opponent_of(current_player)
   end
 
   private
 
   attr_reader :players
+
+  def opponent_of(the_player)
+    players.reject { |player| player == the_player }.first
+  end
 
   def losing_players
     players.select { |player| player.hit_points <= 0 }

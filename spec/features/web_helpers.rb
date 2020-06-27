@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-def sign_in_and_play
+def sign_in_and_play(computer = false)
   visit('/')
   fill_in :player1_name, with: 'Christina'
-  fill_in :player2_name, with: 'Alex'
+  fill_in :player2_name, with: 'Alex' unless computer
   click_button 'Submit'
 end
 

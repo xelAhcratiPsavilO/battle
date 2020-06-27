@@ -3,6 +3,7 @@
 require 'sinatra'
 require './lib/game'
 require './lib/player'
+require './lib/computer_player'
 require './lib/attack'
 
 class Battle < Sinatra::Base
@@ -16,7 +17,11 @@ class Battle < Sinatra::Base
 
   post '/names' do
     player1 = Player.new(params[:player1_name])
-    player2 = Player.new(params[:player2_name])
+    player2 = if params[:player2_name].empty?
+                ComputerPlayer.new
+              else
+                Player.new(params[:player2_name])
+              end
     Game.create(player1, player2)
     redirect '/play'
   end
@@ -26,12 +31,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    Attack.to(@game.opponent_of(@game.current_player))
-    if @game.game_over?
-      redirect '/game-over'
-    else
-      redirect '/attack'
-    end
+    attack_and_redirect(@game)
   end
 
   get '/attack' do
@@ -44,9 +44,24 @@ class Battle < Sinatra::Base
 
   post '/switch-turns' do
     @game.switch_turns
-    redirect '/play'
+    if @game.current_player.computer?
+      attack_and_redirect(@game)
+    else
+      redirect '/play'
+    end
   end
 
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
+
+  private
+
+  def attack_and_redirect(_game)
+    Attack.to(@game.opponent)
+    if @game.game_over?
+      redirect '/game-over'
+    else
+      redirect '/attack'
+    end
+  end
 end
